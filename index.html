@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tax Calculator</title>
+        <link rel="stylesheet" href="style.css">
+
+
+        <!--boot strap stylesheet cdn-->
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+        <!-- bootstrap font icon CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+
+    </head>
+
+    <body>
+
+
+        <div class="taxcalculator  ">
+
+
+            <div class="header col  d-flex bg-warning-subtle px-4">
+
+                <div class=" circle rounded-circle bg-danger-subtle">
+
+                </div>
+                <div class=" circle rounded-circle bg-danger-subtle">
+
+                </div>
+                <div class="circle rounded-circle bg-danger-subtle">
+
+                </div>
+
+            </div>
+
+            <div class="title text-center ">
+                <h1 class="mt-2 text-primary shadow p-3 mb-5 bg-body-tertiary rounded">Tax Calculator</h1>
+            </div>
+
+            <div class="result-div position-absolute    bottom-60 p-8 bg-light" id="tax-div" style="width: 40%;">
+
+                <div class="content mt-5 w-8 text-center">
+                    <h2>Your over all income wiil be<p id="tax-value"> </p>Lakh rupees
+                    </h2>
+
+                    <p>after tax deductions</p>
+
+                    <div class="but mt-5">
+                        <button onclick="closebutton()" class="btn btn-warning">close</button>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="container d-flex justify-content-center shadow p-3 mb-5 bg-body-tertiary rounded ">
+
+
+                <div class="row  text-center">
+                    <div class="  cols shadow-lg p-3 mb-5 bg-body-tertiary rounded ">
+
+
+
+<!-- gross income -->
+
+
+                        <div class="income-input-div m-2">
+
+                            <div class="label-input d-flex">
+                                <div class="label-g">
+                                    <label for="grossincome">Enter gross annual income
+
+                                    </label>
+                                    <button class="btn" id="gross-help"><i class="bi bi-question-circle"></i></button>
+                                </div>
+                                <div class="ghelp-m p-2 rounded">
+                                    gross annual salary is salary of the whole year before any deductions are made,
+                                </div>
+
+                            </div>
+
+                            <div class="input-div  d-flex ">
+
+                                <div class="in">
+                                    <input type="text" class="p-2" name="grossincome" id="grossincome"
+                                        placeholder=" enter annual gross income" style="width: 450px;" />
+                                </div>
+
+
+
+                                <div class="gerr pt-2 ">
+                                    <button class="error-ex" id="gross-error" onmouseover="displayge()"
+                                        onmouseleave='hidegros()'>
+                                        <i class="bi bi-exclamation-circle"></i>
+                                    </button>
+
+
+                                </div>
+
+
+
+
+                            </div>
+                            <div class="grosse-div p-2 rounded" id="gross-er">
+                                Enter Numeric values allowed in gross income
+                            </div>
+
+
+
+
+                        </div>
+
+
+
+
+
+<!-- extra income -->
+
+
+
+                        <div class="income-input-div m-2">
+
+                            <div class="label-input d-flex">
+
+                                <div class="label-e">
+                                    <label for="extraincome">
+                                        Enter extra income
+
+                                    </label>
+                                </div>
+
+                                <div class="btn-div">
+                                    <button class="btn">
+                                        <i class="bi bi-question-circle"></i>
+                                    </button>
+                                </div>
+
+                                <div class="labele-h p-2 rounded">
+                                    Extra annual income other than salary/gross income
+                                </div>
+
+                            </div>
+
+                            <div class="input-div d-flex">
+                                <input type="text" class="p-2" name="extraincome" id="extraincome"
+                                    placeholder="enter extera income">
+                                <button class="error-ex" id="extra-error" onmouseover="diesplayExtrae()" onmouseleave="hideerrore()">
+                                    <i class="bi bi-exclamation-circle">
+
+                                    </i>
+                                </button>
+
+                               
+                            </div>
+                            <div class="extrae-div p-2 rounded" id="extra-er">
+                                Enter Numbers only  extra income 
+                            </div>
+
+
+                        </div>
+
+                        <!-- age  -->
+                        <div class="income-input-div  m-2">
+
+                            <div class="label-input d-flex">
+
+                                <div class="label-a">
+                                    <label for="agegroup">Enter age group
+
+                                    </label>
+                                </div>
+
+                                <div class="abtn">
+                                    <button class="btn">
+                                        <i class="bi bi-question-circle"></i>
+                                    </button>
+                                </div>
+
+                                <div class="age-help-div p-2 rounded" id="age-h">
+                                    Select category of your age group
+                                </div>
+
+
+
+                            </div>
+
+                            <div class="input-div d-flex ">
+                                <select name="agegroup" id="agegroup" class="p-2 " style="height: 50px;">
+
+                                    <option value="0"> </option>
+                                    <option value="39"> Less than 40</option>
+                                    <option value="40"> 40-60</option>
+                                    <option value="60">more than 60</option>
+
+                                </select>
+
+
+                                <button class="error-ex" id="age-error" onmouseover="agedisplay()" onmouseleave="hideagee()">
+                                    <i class="bi bi-exclamation-circle">
+
+                                    </i>
+
+
+                            </div>
+
+
+
+
+                            <div class="agee-div p-2 rounded" id="age-er-div">
+
+    please select valid age group from dropdown
+
+
+                            </div>
+
+
+
+
+
+
+
+
+                        </div>
+
+                        <!-- total deduction -->
+
+
+                        <div class="income-input-div m-2">
+
+                            <div class="label-input d-flex p-2">
+
+                                <div class="label-d">
+                                    <label for="totaldeduction">
+                                        Enter total applicable deductions
+
+                                    </label>
+                                </div>
+
+
+
+                                <div class="d-btn">
+                                    <button class="btn">
+                                        <i class="bi bi-question-circle"></i>
+                                    </button>
+                                </div>
+
+                                <div class="deduct-h p-2 rounded">
+                                    Enter total deductions of the year loan/employee salary
+                                </div>
+
+                            </div>
+
+                            <div class="input-div d-flex ">
+                                <input type="text" class="p-2" name="totaldeduction" id="totaldeduction"
+                                    placeholder="Enter total deduction">
+
+
+                                <button class="error-ex" id="deduction-error" onmouseover="displayDederror()" onmouseleave="hidedederr()">
+                                    <i class="bi bi-exclamation-circle">
+
+                                    </i>
+
+
+                            </div>
+
+
+                            <div class="dede-div p-2 rounded" id="ded-er-div">
+
+    Enter Numeric values allowed in total deduction 
+
+
+                            </div>
+                        </div>
+
+
+
+                        <div>
+                            <button type="submit" onclick="checkerror()"> Submit</button>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+        </div>
+
+
+
+
+
+        </div>
+
+
+
+        <script src="index.js"></script>
+    </body>
+
+</html>
